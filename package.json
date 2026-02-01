@@ -1,0 +1,23 @@
+{
+  "name": "baileys-example",
+  "version": "1.0.0",
+  "description": "Exemplos de como utilizar a bielys",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node-dev index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "baileys": "^7.0.0-rc.9",
+    "boom": "^7.3.0",
+    "qrcode-terminal": "^0.12.0",
+    "ts-node-dev": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/boom": "^7.3.5",
+    "@types/qrcode-terminal": "^0.12.2"
+  }
+}
