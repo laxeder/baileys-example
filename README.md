@@ -22,13 +22,6 @@ Isso cria o `package.json` básico.
 npm install baileys
 ```
 
-Depois, instale também o TypeScript e tipos básicos (opcional, mas recomendado):
-
-```bash
-npm install --save-dev typescript @types/node
-npx tsc --init
-```
-
 ---
 
 ## 3. Criar o arquivo `index.ts`
@@ -115,14 +108,14 @@ No `package.json`, adicione um script para rodar o projeto em modo watch:
 
 ```json
 "scripts": {
-	"dev": "ts-node-dev --respawn --transpile-only index.ts"
+	"start": "ts-node-dev index.ts"
 }
 ```
 
 Agora você pode iniciar a aplicação com:
 
 ```bash
-npm run dev
+npm start
 ```
 
 Quando rodar pela primeira vez, será exibido o QR Code; escaneie com o WhatsApp do seu celular.
