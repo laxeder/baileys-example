@@ -46,7 +46,7 @@ Depois, defina a função principal `run`:
 
 ```ts
 async function run() {
-	// código virá aqui
+  // código virá aqui
 }
 
 run();
@@ -60,14 +60,14 @@ Dentro da função `run`, use o `useMultiFileAuthState` para gerenciar a sessão
 
 ```ts
 async function run() {
-	const { state, saveCreds } = await useMultiFileAuthState("sessions");
+  const { state, saveCreds } = await useMultiFileAuthState("sessions");
 
-	const waSock = makeWASocket({
-		auth: state,
-		logger: logger({ level: "silent" }),
-	});
+  const waSock = makeWASocket({
+    auth: state,
+    logger: logger({ level: "silent" }),
+  });
 
-	// ...demais eventos
+  // ...demais eventos
 }
 ```
 
@@ -93,11 +93,11 @@ E no evento de atualização da conexão, mostre o QR Code quando estiver dispon
 
 ```ts
 waSock.ev.on("connection.update", (update) => {
-	const { qr } = update;
+  const { qr } = update;
 
-	if (qr) {
-		QR.generate(qr, { small: true });
-	}
+  if (qr) {
+    QR.generate(qr, { small: true });
+  }
 });
 ```
 
@@ -151,20 +151,20 @@ import { DisconnectReason } from "baileys";
 
 ```ts
 waSock.ev.on("connection.update", (update) => {
-	const { qr, connection, lastDisconnect } = update;
+  const { qr, connection, lastDisconnect } = update;
 
-	if (qr) {
-		QR.generate(qr, { small: true });
-	}
+  if (qr) {
+    QR.generate(qr, { small: true });
+  }
 
-	if (connection === "close") {
-		const error = lastDisconnect?.error as Boom;
-		const errorStatusCode = error?.output?.statusCode;
+  if (connection === "close") {
+    const error = lastDisconnect?.error as Boom;
+    const errorStatusCode = error?.output?.statusCode;
 
-		if (errorStatusCode === DisconnectReason.restartRequired) {
-			run();
-		}
-	}
+    if (errorStatusCode === DisconnectReason.restartRequired) {
+      run();
+    }
+  }
 });
 ```
 
@@ -178,7 +178,7 @@ Para que o login não seja perdido sempre que você reiniciar a aplicação, sal
 
 ```ts
 waSock.ev.on("creds.update", () => {
-	saveCreds();
+  saveCreds();
 });
 ```
 
@@ -192,9 +192,9 @@ Por fim, adicione um listener para o evento `messages.upsert` para ver as mensag
 
 ```ts
 waSock.ev.on("messages.upsert", (m) => {
-	for (const msg of m.messages) {
-		console.log("Mensagem recebida:", msg.message?.conversation);
-	}
+  for (const msg of m.messages) {
+    console.log("Mensagem recebida:", msg.message?.conversation);
+  }
 });
 ```
 
