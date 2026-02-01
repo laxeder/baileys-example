@@ -1,2 +1,2 @@
 # baileys-example
-Exemplos de como utilizar a baielys
+Exemplos de como utilizar a baileys
